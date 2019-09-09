@@ -98,48 +98,6 @@
             </div>
         </div>
 
-<script src="{{ asset('js/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('js/datatables/dataTables.bootstrap4.min.js') }}"></script>
-<script>
-var table;
-$(document).ready(function () {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
-    table = $('#tb-member').DataTable({
-        lengthMenu: [[5, 10, 15, -1], [5, 10, 15, "All"]],
-        autowidth: true,
-        serverSide: true,
-        processing: false,
-        ajax: '/admin/member/view',
-        columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', searchable: false, orderable: false},
-            { data: 'username', name: 'username' },
-            { data: 'email', name: 'email' },
-            { data: 'nohp', name: 'nohp' },
-            { data: 'action', name: 'action', searchable: false, orderable: false }
-        ],
-        columnDefs: [
-            { targets: [0], width:'5%', orderable: false},
-            { targets: [1], width:'10%'},
-            { targets: [2], width:'55%'},
-            { targets: [3], width:'15%'},
-            { targets: [4], width:'15%', orderable: false},
-            {
-                targets: [0, 1, 3, 4],
-                className: 'text-center'
-            },
-            {
-                targets: [2],
-                className: 'text-left'
-            },
-        ],
-    });
-
-});
-</script>
     </body>
 </html>
